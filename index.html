@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>يمني ❤️ عمر</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+background-image:url(Artboard\ 1.png);  
+background-color: #cccccc;
+background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+section {
+    padding: 60px 20px;
+}
+.heart {
+  position: fixed;
+  top: -10px;
+  font-size: 18px;
+  color: #ff4f9a;
+  animation: fall linear forwards;
+  pointer-events: none;
+  z-index: -1;
+}
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+}
+
+.heart {
+    font-size: 50px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+.counter {
+      text-align: center;
+      background: rgba(0,0,0,0.25);
+      padding: 30px 40px;
+      border-radius: 15px;
+    }
+    .time {
+      font-size: 2rem;
+      margin-top: 10px;
+      letter-spacing: 1px;
+    }
+    .love-letter {
+    max-width: 600px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.8;
+    background: rgba(255,255,255,0.15);
+    padding: 25px;
+    border-radius: 20px;
+}
+
+footer {
+    padding: 20px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+    .music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff4f9a;
+      color: white;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+
+/* floating hearts */
+.floating-heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+    color: rgba(255,255,255,0.8);
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section>
+    <h1>يمني ❤️ عمر</h1>
+    <div class="heart">💖</div>
+    <h2>يوم ما بدأت حكايتنا</h2>
+    <p>6 / 2 / 2024</p>
+</section>
+
+<section>
+    <h2>عدّاد حبنا ⏳</h2>
+<div class="counter">
+    <h1>Time since February 6, 2024</h1>
+    <div class="time" id="counter">Loading...</div>
+  </div>
+</section>
+
+<section>
+    <h2>قصتنا</h2>
+    <p>
+        في يوم 6 / 2 / 2024، ماكنتش مجرد بداية علاقة…  
+        كان بداية شعور جديد، أمان، ضحكة من القلب،  
+        وشخص بقى هو البيت.
+    </p>
+</section>
+
+<section>
+    <h2>رسالة ليكي 💌</h2>
+    <div class="love-letter">
+        روح قلبي نونتي بمناسبه ان خلاص هنتم سنتين مع بعض🌚وانا حابب اقولق انك احسن وانضف حد دخل حياتي وبتمني من ربنا اننا نفضل مع بعض لأخر العمر يروحي🥹🌚برغم اننا حصل حوارات كتير مع بعض بس رغم كد متخلناش عن بعض انا وانتي وبرده انتي جي عليكي اوقات كنتي مصممه اننا نبعد بس انا كنت متمسك بيكي عشان انا بجد بحبك بجد ومقدرش استغنا عنك والله ينونه🌚💗سنتين مع بعض في خناق ونكش ونكد بس كانوا ع قلبي زي العسل والله 🌚وان شاء الله نفضل سوا انا وانتي لاخر العمر يحتتي ومفيش حاجه تفرقنا انا وانتي يقطتي🥺🌚بجد بحبك اوي ي يمني وربنا يخليكي ليا يروحقلبي وميحرمنيش منك ابدأ يقطتي 💗💋💋💋💋🙈
+        <br><br>
+        
+</audio>
+<audio id="music" loop>
+  <source src="09_Youm_Matbelna.mp3" type="audio/mpeg">
+</audio>
+
+
+        <script>
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "🌹";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 10 + "px";
+  heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+  heart.style.opacity = Math.random();
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 7000);
+}
+
+// Create hearts continuously
+setInterval(createHeart, 500);
+
+  let playing = false;
+  const music = document.getElementById("music");
+
+  function toggleMusic() {
+    if (playing) {
+      music.pause();
+    } else {
+      music.play();
+    }
+    playing = !playing;
+  }
+  
+
+const startDate = new Date("2024-02-06T00:00:00");
+
+    function updateCounter() {
+      const now = new Date();
+      let diff = now - startDate;
+
+      if (diff < 0) diff = 0;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("counter").textContent =
+        `${days} days  ${hours} hours  ${minutes} minutes ${seconds} seconds `;
+    }
+
+    updateCounter();
+    setInterval(updateCounter, 1000);
+</script>
+        </html>
